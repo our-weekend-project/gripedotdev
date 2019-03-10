@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +7,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   links = ['vent', 'gripes'];
-  activeLink = window.location.pathname.replace('/', '');
+  activeLink: string;
 
   constructor() {
    }
 
   ngOnInit() {
+    this.activeLink = window.location.pathname.replace('/', '');
+    if (this.activeLink === '') {
+      this.activeLink = 'vent';
+    }
   }
 
 }
