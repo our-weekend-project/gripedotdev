@@ -1,10 +1,20 @@
-<mat-card *ngFor="let gripe of gripes">
-    <!-- <mat-card-header> -->
-      <div mat-card-avatar>
-        {{gripe.opReaction}}
-      </div>  
-    <!-- </mat-card-header> -->
-    <mat-card-content>
-      {{gripe.gripe}}
-    </mat-card-content>
+<div class="mat-card-wrap">
+    <mat-card *ngFor="let gripe of gripes">
+          <div mat-card-avatar>
+            {{gripe.opReaction}}
+          </div>  
+        <mat-card-content>
+          {{gripe.gripe}}
+          {{gripe.otherReactions}}
+        </mat-card-content>
+        <mat-card-actions>
+          <!-- <ng-template *ngIf="gripe.hasOtherReactions"> -->
+            <button mat-button *ngFor="let reaction of gripe.otherReactions">{{reaction.reactionEmoji}} {{reaction.numOfReactions}}</button>
+            <div *ngIf="gripe.hasOtherReactions">
+              TEST
+            </div>
+          <!-- </ng-template> -->
+          <button mat-button>Add reaction</button>
+        </mat-card-actions>
   </mat-card>
+</div>

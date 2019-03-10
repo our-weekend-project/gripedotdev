@@ -1,3 +1,13 @@
+.mat-card-wrap {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-around;
+}
+
+.mat-card {
+    margin: 1.5rem;
+    max-width: 800px;
+}
 .mat-card-content {
     white-space: pre-line;
 }

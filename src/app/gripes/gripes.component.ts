@@ -7,8 +7,11 @@ import { Gripes } from './gripes';
   styleUrls: ['./gripes.component.scss']
 })
 export class GripesComponent implements OnInit {
+  // Need to refactor this to use a mock service.
   gripes = new Gripes().staticGripes;
-  constructor() { }
+  constructor() { 
+    console.log(this.gripes);
+  }
 
   ngOnInit() {
   }
