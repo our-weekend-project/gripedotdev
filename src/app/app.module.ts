@@ -7,7 +7,9 @@ import {
   MatButtonModule,
   MatTabsModule,
   MatToolbarModule,
-  MatCardModule } from '@angular/material';
+  MatCardModule,
+  MatListModule, 
+  MatList} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +35,8 @@ import { FooterComponent } from './navigation/footer/footer.component';
     MatButtonModule,
     MatTabsModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
