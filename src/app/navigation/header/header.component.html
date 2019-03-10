@@ -1,14 +1,9 @@
-<!-- <mat-toolbar> -->
-  
-  <nav mat-tab-nav-bar>
+<nav mat-tab-nav-bar>
       <h1>😡Gripe.dev</h1>  
-      <!-- (click)="activeLink = link" -->
-      <!-- [active]="activeLink == link" -->
     <a mat-tab-link *ngFor="let link of links"
       (click)="activeLink = link"
       [active]="activeLink == link"
       routerLink="{{link}}">
       {{link | uppercase}}
-    </a>
-  </nav>
-<!-- </mat-toolbar>   -->
+    </a>  
+</nav>

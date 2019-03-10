@@ -3,3 +3,16 @@ h1 {
     padding-right: 5rem;
     padding-left: 1rem;
 }
+
+a {
+    font-weight: 500;
+    // color: rgba(0,0,0, 0.87);
+}
+
+.mat-tab-label-active {
+    color: #EA3D2F;
+    // opacity: 1;
+}
+.mat-ink-bar {
+    background-color: #EA3D2F;
+}

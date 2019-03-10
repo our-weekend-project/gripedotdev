@@ -10,8 +10,7 @@ export class HeaderComponent implements OnInit {
   links = ['vent', 'gripes'];
   activeLink = window.location.pathname.replace('/', '');
 
-  constructor(private _route: ActivatedRoute) {
-    console.log(_route.component);
+  constructor() {
    }
 
   ngOnInit() {
