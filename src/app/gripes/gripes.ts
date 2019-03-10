@@ -57,6 +57,20 @@ export class Gripes {
                 gripe: `Who the fuck thought it would be a good idea to nest all java projects in at minimum 3 folder`,
                 timeStamp: date,
                 opReaction: '😡'
+            },
+            {
+                $key: '5',
+                gripe: `My team at work is 1 person work now. Also, all the offical work repos are on my personal github
+                ¯\\_(ツ)_/¯
+                That's not a shrug emote, that's me carrying the department on my back`,
+                timeStamp: date,
+                opReaction: '🤷'
+            },
+            {
+                $key: '6',
+                gripe: `You can't run and test firebase locally`,
+                timeStamp: date,
+                opReaction: '🙄'
             }
         );
     }
