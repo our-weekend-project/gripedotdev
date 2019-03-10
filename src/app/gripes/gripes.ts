@@ -10,7 +10,8 @@ export class Gripes {
             {
                 $key: '1',
                 gripe: 'my life is nothing but gripes',
-                timeStamp: date
+                timeStamp: date,
+                opReaction: '🗿'
             },
             {
                 $key: '2',
@@ -21,26 +22,37 @@ export class Gripes {
                 4) blindly cherry-pick to staging
                 5) hope it works once a new staging post happens
                 `,
-                timeStamp: date
+                timeStamp: date,
+                opReaction: '🤦'
             },
             {
                 $key: '3',
-                gripe: 'New Android continues to dissapoint',
-                timeStamp: date
+                gripe: 'New Android continues to disappoint',
+                timeStamp: date,
+                opReaction: '👌'
             },
             {
                 $key: '4',
-                gripe: `The pyton tools for VSCode are pretty good, but the linter only runs on the current file when you save the current file, so you can't refactor things by:
+                gripe: `The python tools for VSCode are pretty good, but the linter only runs on the current file when you save the current file, so you can't refactor things by:
                 1. Deleting the thing
                 2. Resolving the errors
                 `,
-                timeStamp: date
+                timeStamp: date,
+                opReaction: '🕴'
             },
             {
                 $key: '4',
                 gripe: `Who the fuck thought it would be a good idea to nest all java projects in at minimum 3 folder`,
-                timeStamp: date
+                timeStamp: date,
+                opReaction: '😡'
             }
         );
+    }
+
+    getGripes(): Gripe[] {
+        return this.staticGripes;
+    }
+    addGripe(gripe: Gripe): void {
+        this.staticGripes.push(gripe);
     }
 }
