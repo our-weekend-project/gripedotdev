@@ -1,9 +1,9 @@
-import Gripe from './gripe';
+import {GripeStruct} from './gripe';
 
 // tslint:disable: max-line-length
 // disabling max-line-length for file cause static date
 export class Gripes {
-    staticGripes: Gripe[] = [];
+    staticGripes: GripeStruct[] = [];
     constructor() {
         const date = new Date();
         this.staticGripes.push(
@@ -29,7 +29,11 @@ export class Gripes {
                 $key: '3',
                 gripe: 'New Android continues to disappoint',
                 timeStamp: date,
-                opReaction: '👌'
+                opReaction: '👌',
+                otherReactions: [
+                    {reactionEmoji: '💯',
+                    numOfReactions: 12 }
+                ]
             },
             {
                 $key: '4',
@@ -38,7 +42,15 @@ export class Gripes {
                 2. Resolving the errors
                 `,
                 timeStamp: date,
-                opReaction: '🕴'
+                opReaction: '🕴',
+                otherReactions: [
+                    {   reactionEmoji: '💯',
+                        numOfReactions: 100 },
+                    {
+                        reactionEmoji: '🗿',
+                        numOfReactions: 9001
+                    }
+                ]
             },
             {
                 $key: '4',
@@ -49,10 +61,10 @@ export class Gripes {
         );
     }
 
-    getGripes(): Gripe[] {
+    getGripes(): GripeStruct[] {
         return this.staticGripes;
     }
-    addGripe(gripe: Gripe): void {
+    addGripe(gripe: GripeStruct): void {
         this.staticGripes.push(gripe);
     }
 }
