@@ -1,0 +1,8 @@
+version: "3.2"
+
+services:
+  webapp:
+    image: gripedotdev/webapp
+    build: .
+    ports:
+      - 4200:80
