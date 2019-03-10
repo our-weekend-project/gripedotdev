@@ -1,0 +1,32 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  h1 {
+    font-size: 65px;
+  }
+}
+
+.page-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-page {
+  height: 100vh;
+  width: 100vw;
+}
+
+.griper {
+  width: 50vw;
+  font-size: 24px;
+}
+
+.gripe-giver {
+  font-size: 24px;
+}
