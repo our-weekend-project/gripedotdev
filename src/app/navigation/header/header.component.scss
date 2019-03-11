@@ -2,6 +2,14 @@ h1 {
     margin: auto 0;
     padding-right: 5rem;
     padding-left: 1rem;
+    @media screen and (max-width: 415px) {
+        // margin: 0;
+        padding-right: 0;
+    }
+    @media screen and (max-width: 332px) {
+        font-size: 1.25rem;
+        
+    }
 }
 
 a {
