@@ -5,12 +5,9 @@
           </div>  
         <mat-card-content>
           {{gripe.gripe}}
-          <!-- {{gripe.otherReactions}} -->
         </mat-card-content>
         <mat-card-actions>
-          <!-- <ng-template *ngIf="gripe.hasOtherReactions"> -->
             <button mat-button *ngFor="let reaction of gripe.otherReactions">{{reaction.reactionEmoji}} {{reaction.numOfReactions}}</button>
-          <!-- </ng-template> -->
           <button mat-button>Add reaction</button>
           <button mat-button>Report</button>
         </mat-card-actions>
