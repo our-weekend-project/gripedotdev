@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import {
   MatInputModule,
   MatFormFieldModule,
@@ -37,7 +38,8 @@ import { FooterComponent } from './navigation/footer/footer.component';
     MatToolbarModule,
     MatCardModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    PickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
