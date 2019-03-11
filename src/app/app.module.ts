@@ -8,8 +8,8 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatCardModule,
-  MatListModule, 
-  MatList} from '@angular/material';
+  MatListModule,
+  MatMenuModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,7 +36,8 @@ import { FooterComponent } from './navigation/footer/footer.component';
     MatTabsModule,
     MatToolbarModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
