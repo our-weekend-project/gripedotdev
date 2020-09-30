@@ -1,20 +1,25 @@
 version: "3.2"
 
 services:
+  #
+  # Backend Services
+  #
+
+  # Postgres database (dev)
   postgres:
     image: postgres:12.4
     restart: always
     environment:
-      POSTGRES_USER: username
+      POSTGRES_USER: gripedotdev
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: gripedotdev
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./db/migrations/:/docker-entrypoint-initdb.d/
+      - ./db/test_data.sql:/docker-entrypoint-initdb.d/test_data.sql
     networks:
       - postgres_network
 
-  # in-browser SQL GUI
+  # in-browser SQL GUI (dev, optional)
   adminer:
     image: adminer
     restart: always
@@ -25,25 +30,29 @@ services:
     depends_on:
       - postgres
 
-  postgraphile:
+  # GraphQL API
+  graphql:
     image: graphile/postgraphile:4
     restart: always
     ports:
       - "5000:5000"
     environment:
-      DATABASE_URL: postgres://username:password@postgres/gripedotdev
+      DATABASE_URL: postgres://gripedotdev:password@postgres/gripedotdev
     networks:
       - postgres_network
     depends_on:
       - postgres
 
+  #
+  # Frontend Services
+  #
   webapp:
     image: gripedotdev/webapp
     build: .
     ports:
       - 4200:80
     depends_on:
-      - postgraphile
+      - graphql
 
 networks:
   postgres_network:
