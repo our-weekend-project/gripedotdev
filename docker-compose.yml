@@ -1,8 +1,52 @@
 version: "3.2"
 
 services:
+  postgres:
+    image: postgres:12.4
+    restart: always
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: gripedotdev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/migrations/:/docker-entrypoint-initdb.d/
+    networks:
+      - postgres_network
+
+  # in-browser SQL GUI
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - postgres_network
+    depends_on:
+      - postgres
+
+  postgraphile:
+    image: graphile/postgraphile:4
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgres://username:password@postgres/gripedotdev
+    networks:
+      - postgres_network
+    depends_on:
+      - postgres
+
   webapp:
     image: gripedotdev/webapp
     build: .
     ports:
       - 4200:80
+    depends_on:
+      - postgraphile
+
+networks:
+  postgres_network:
+
+volumes:
+  postgres_data:
