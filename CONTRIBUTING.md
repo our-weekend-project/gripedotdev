@@ -12,6 +12,7 @@ The workflow is defined as:
 
 # Branching Strategy
 We will use feature branching strategy where the branch name will be:
-* `Issue_num`_short_description_of_work
+* `conventional_commit_identifier: description_of_work`
+* e.g. `build: update dependencies`, `feat: add new feature`, `fix: fix testing issue` `fix: fix broken logic in xyz`, etc.
 
 If the need arises for a more comprehensive workflow, Git Flow would probably be a decent choice.
