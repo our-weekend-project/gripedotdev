@@ -34,8 +34,10 @@ services:
   graphql:
     image: graphile/postgraphile:4
     restart: always
+    entrypoint: ./cli.js --subscriptions --watch
     ports:
       - "5000:5000"
+      - "5000:5000/udp"
     environment:
       DATABASE_URL: postgres://gripedotdev:password@postgres/gripedotdev
     networks:
