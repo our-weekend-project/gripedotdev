@@ -44,3 +44,6 @@ INSERT INTO "reactions" ("user_id", "post_id", "reaction") VALUES
 (2,	8,	'🗿'),
 (3,	8,	'🗿'),
 (4,	8,	'🗿');
+
+alter sequence "users_id_seq" restart 5;
+alter sequence "posts_id_seq" restart 13;
