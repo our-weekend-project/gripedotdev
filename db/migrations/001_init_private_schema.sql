@@ -38,4 +38,5 @@ $$ language plpgsql strict security definer;
 -- TODO:
 --  - restrict post/reaction creation to a logged in user
 --  - add a username column?
---  - 
+--  - add roles and set default postgraphile role to anonymous role
+--  - https://www.graphile.org/postgraphile/postgresql-schema-design/#postgres-roles
