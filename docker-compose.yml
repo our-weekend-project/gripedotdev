@@ -34,10 +34,11 @@ services:
   graphql:
     image: graphile/postgraphile:4
     restart: always
-    entrypoint: ./cli.js --subscriptions --watch
+    entrypoint: ["./cli.js", "--watch", "--default-role", "gripedotdev_anonymous", "--jwt-token-identifier", "public.jwt_token"]
+    # Production config should include a strong --jwt-secret
+    # entrypoint: ["./cli.js", "--watch", "--default-role", "gripedotdev_anonymous", "--jwt-token-identifier", "public.jwt_token", "--jwt-secret", "some_strong_password"]
     ports:
       - "5000:5000"
-      - "5000:5000/udp"
     environment:
       DATABASE_URL: postgres://gripedotdev:password@postgres/gripedotdev
     networks:
