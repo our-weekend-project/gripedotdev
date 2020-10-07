@@ -1,4 +1,4 @@
--- 001_private_schema.sql
+-- 001_init_private_schema.sql
 
 -- private schema for non-public objects
 create schema "private";
