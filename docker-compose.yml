@@ -32,10 +32,13 @@ services:
 
   # GraphQL API
   graphql:
-    image: graphile/postgraphile:4
+    image: gripedotdev/postgraphile
     restart: always
     # Production config should include a stronger --jwt-secret
-    entrypoint: ["./cli.js", "--watch", "--default-role", "gripedotdev_anonymous", "--jwt-token-identifier", "public.jwt_token", "--jwt-secret", "some_strong_password"]
+    entrypoint: ["./cli.js", "--watch", "--default-role", "gripedotdev_anonymous", "--jwt-token-identifier", "public.jwt_token", "--jwt-secret", "some_strong_password", "--append-plugins", "@graphile-contrib/pg-simplify-inflector"]
+    build:
+      context: .
+      dockerfile: ./postgraphile/Dockerfile
     ports:
       - "5000:5000"
     environment:
