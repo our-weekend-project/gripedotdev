@@ -35,7 +35,7 @@ services:
     image: gripedotdev/postgraphile
     restart: always
     # Production config should include a stronger --jwt-secret
-    entrypoint: ["./cli.js", "--watch", "--default-role", "gripedotdev_anonymous", "--jwt-token-identifier", "public.jwt_token", "--jwt-secret", "some_strong_password", "--append-plugins", "@graphile-contrib/pg-simplify-inflector"]
+    entrypoint: ["./cli.js", "--watch", "--default-role", "gripedotdev_anonymous", "--jwt-token-identifier", "public.jwt_token", "--jwt-secret", "some_strong_password", "--append-plugins", "@graphile-contrib/pg-simplify-inflector,postgraphile-plugin-connection-filter"]
     build:
       context: .
       dockerfile: ./postgraphile/Dockerfile

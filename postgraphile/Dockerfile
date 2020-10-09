@@ -1,5 +1,9 @@
 ARG postgraphile_version=4
 FROM graphile/postgraphile:${postgraphile_version}
 
-# https://github.com/graphile/pg-simplify-inflector
-RUN yarn add @graphile-contrib/pg-simplify-inflector
+# Add graphile plugins
+RUN yarn add \
+    # https://github.com/graphile/pg-simplify-inflector
+    @graphile-contrib/pg-simplify-inflector \
+    # https://github.com/graphile-contrib/postgraphile-plugin-connection-filter
+    yarn add postgraphile-plugin-connection-filter
