@@ -6,4 +6,4 @@ RUN yarn add \
     # https://github.com/graphile/pg-simplify-inflector
     @graphile-contrib/pg-simplify-inflector \
     # https://github.com/graphile-contrib/postgraphile-plugin-connection-filter
-    yarn add postgraphile-plugin-connection-filter
+    postgraphile-plugin-connection-filter
