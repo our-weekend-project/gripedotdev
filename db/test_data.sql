@@ -30,6 +30,7 @@ INSERT INTO "posts" ("id", "content", "created", "icon", "user_id") VALUES
 
 That''s not a shrug emote, that''s me carrying the department on my back',	'2020-09-30 18:23:52.553874',	'🤷',	NULL),
 (12,	'Working out makes me sore 😡',	'2020-09-30 18:23:15.462048',	'😡',	1);
+(13, `Getting motivation to do personal coding after 8 hours of coding at work is difficult`, '2020-10-13 11:30:46.267512', '🤦',	NULL);
 
 INSERT INTO "reactions" ("user_id", "post_id", "reaction") VALUES
 (1,	7,	'💯'),
