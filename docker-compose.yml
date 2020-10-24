@@ -51,13 +51,20 @@ services:
   #
   # Frontend Services
   #
-  webapp:
-    image: gripedotdev/webapp
-    build: .
+  frontend:
+    image: gripedotdev/frontend
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    volumes:
+      - './frontend:/app'
+      - '/app/node_modules'
     ports:
-      - 4200:80
+      - 3000:3000
     depends_on:
       - graphql
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 
 networks:
   postgres_network:
