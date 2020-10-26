@@ -43,8 +43,8 @@ services:
   frontend:
     image: gripedotdev/frontend
     build:
-      context: .
-      dockerfile: ./frontend/Dockerfile.prod
+      context: ./frontend
+      dockerfile: Dockerfile.prod
     volumes:
       - './frontend:/app'
       - '/app/node_modules'
