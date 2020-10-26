@@ -1,0 +1,60 @@
+version: "3.2"
+
+services:
+  #
+  # Backend Services
+  #
+
+  # Postgres database (dev)
+  postgres:
+    image: postgres:12.4
+    restart: always
+    environment:
+      POSTGRES_USER: gripedotdev
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/migrations/:/docker-entrypoint-initdb.d/
+      - ./db/test_data.sql:/docker-entrypoint-initdb.d/test_data.sql
+    networks:
+      - postgres_network
+
+  # GraphQL API
+  graphql:
+    image: gripedotdev/postgraphile
+    restart: always
+    # Production config should include a stronger --jwt-secret
+    entrypoint: ["./cli.js", "--watch", "--default-role", "gripedotdev_anonymous", "--jwt-token-identifier", "public.jwt_token", "--jwt-secret", "some_strong_password", "--append-plugins", "@graphile-contrib/pg-simplify-inflector,postgraphile-plugin-connection-filter"]
+    build:
+      context: .
+      dockerfile: ./postgraphile/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgres://gripedotdev:password@postgres/gripedotdev
+    networks:
+      - postgres_network
+    depends_on:
+      - postgres
+
+  #
+  # Frontend Services
+  #
+  frontend:
+    image: gripedotdev/frontend
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile.prod
+    volumes:
+      - './frontend:/app'
+      - '/app/node_modules'
+    ports:
+      - 1337:80
+    depends_on:
+      - graphql
+
+networks:
+  postgres_network:
+
+volumes:
+  postgres_data:
