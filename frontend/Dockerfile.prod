@@ -1,7 +1,7 @@
 # Based on this guide https://mherman.org/blog/dockerizing-a-react-app/
 
 # pull official base image
-FROM node:15.0.1-alpine3.10
+FROM node:15.0.1-alpine3.10 as build
 
 # set working directory
 WORKDIR /app
