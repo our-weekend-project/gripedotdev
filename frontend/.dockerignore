@@ -1,0 +1,14 @@
+# Node
+node_modules
+dist/
+
+# Docker
+*Dockerfile*
+.dockerignore
+
+# Git
+.gitignore
+commitlint.config.js
+
+# etc
+*.md
