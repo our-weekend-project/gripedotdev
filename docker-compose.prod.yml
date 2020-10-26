@@ -41,13 +41,10 @@ services:
   # Frontend Services
   #
   frontend:
-    image: gripedotdev/frontend
+    image: gripedotdev/frontend:latest
     build:
       context: ./frontend
       dockerfile: Dockerfile.prod
-    volumes:
-      - './frontend:/app'
-      - '/app/node_modules'
     ports:
       - 1337:80
     depends_on:
