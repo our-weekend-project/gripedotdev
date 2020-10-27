@@ -1,7 +1,12 @@
+import { H, Text } from "./components/Primatives";
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <H>Test</H>
+      <Text>
+        This is a test of some stuff. Here's <a href="http://dylansheffer.com">a test link</a>.
+      </Text>
     </div>
   );
 }
