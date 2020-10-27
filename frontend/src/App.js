@@ -1,4 +1,4 @@
-import { H, Text } from "./components/Primatives";
+import { H, Text } from "./components/Primitives";
 
 function App() {
   return (
